@@ -1,9 +1,14 @@
-// const fs = require('fs/promises')
-// const { nanoid } = require('nanoid')
-// const path = require('path')
 
 
-// // const contactPath = path.join(__dirname, 'contacts.json')
+// const {HttpError, ctrlWrapper} = require('../../helpers')
+const { ctrlWrapper } = require('../../helpers')
+const {Contact} = require('../../models/contact')
+
+const listContacts = async (req, res) => {
+    const data = await Contact.find()
+    console.log("data")
+     res.json(data)
+  }
 
 
 
@@ -51,10 +56,10 @@
 //    return contacts[index]
 // }
 
-// module.exports = {
-//   listContacts,
+module.exports = {
+  listContacts: ctrlWrapper(listContacts),
 //   getContactById,
 //   removeContact,
 //   addContact,
 //   updateContact,
-// }
+}
