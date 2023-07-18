@@ -1,12 +1,10 @@
 
-const { ctrlWrapper } = require('../../helpers')
 const {Contact} = require('../../models/contact')
 
-const listContacts = async (req, res) => {
-    const data = await Contact.find()
-    console.log("data")
-     res.json(data)
+const listContacts = async (_, res) => {
+    const result = await Contact.find()
+     res.json(result)
   }
 
-  module.exports =    {listContacts: ctrlWrapper(listContacts)}
+  module.exports =   listContacts
 

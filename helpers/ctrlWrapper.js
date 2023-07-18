@@ -1,9 +1,9 @@
-const ctrlWrapper = (ctrl) => {
+const ctrl = (ctr) => {
 
 
     const func = async (req, res, next) => {
         try {
-            await ctrl(req, res, next)
+            await ctr(req, res, next)
         } 
         catch (error) {
             next(error)
@@ -13,4 +13,4 @@ const ctrlWrapper = (ctrl) => {
     return func
 }
 
-module.exports = ctrlWrapper
+module.exports = ctrl
