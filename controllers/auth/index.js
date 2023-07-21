@@ -1,7 +1,10 @@
 const { ctrl } = require("../../helpers");
-const register = require("./auth");
+const { register, login } = require("./auth");
+
 
 module.exports ={
 
     register: ctrl(register),
+    login: ctrl(login),
+
 }
