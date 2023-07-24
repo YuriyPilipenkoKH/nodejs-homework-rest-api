@@ -1,9 +1,16 @@
 
 const {Contact} = require('../../models/contact')
 
-const listContacts = async (_, res) => {
-    const result = await Contact.find()
-     res.json(result)
+const listContacts = async (req, res) => {
+    const { _id: owner } = req.user;
+    const { page = 1, limit = 10 } = req.query;
+    const skip = (page - 1) * limit;
+    const data = await Contact.find({ owner }, "-createdAt -updatedAt", {
+      skip,
+      limit,
+    });
+  
+    res.json(data);
   }
 
   module.exports =   listContacts
