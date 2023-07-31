@@ -19,20 +19,29 @@ const userSchema = new Schema(
       unique: true, // проверка на уникальность mongoose
       required: true,
     },
+
     password: {
       type: String,
       minlength: 6,
       required: true,
     },
+
     subscription: {
       type: String,
       enum: ["starter", "pro", "business"],
       default: "starter",
     },
+
     token: {
       type: String,
       default: "",
     },
+
+    avatarURL: {
+        type: String,
+        required: true,
+    },
+
   },
   { versionKey: false, timestamps: true }
 );
