@@ -8,10 +8,12 @@ const removeUser = require("./removeUser");
 
 
 
+
 module.exports = {
     listUsers: ctrl(listUsers),
     getUserById: ctrl(getUserById),
     getUserByName: ctrl(getUserByName),
     getUserByEmail: ctrl(getUserByEmail),
     removeUser: ctrl(removeUser),
+  
 }

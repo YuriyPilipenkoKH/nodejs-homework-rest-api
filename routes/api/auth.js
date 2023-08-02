@@ -8,6 +8,11 @@ const authRouter = express.Router()
 
 // signup
 authRouter.post("/register",  validateBody(schemas.registerSchema), controllers.register )
+
+authRouter.get("/verify/:verificationCode",  controllers.verifyEmail)
+
+authRouter.post("/verify", validateBody(schemas.emailSchema), controllers.resendVerifyEmail)
+
 // signin
 authRouter.post("/login", validateBody(schemas.loginSchema), controllers.login)
 
